@@ -9,6 +9,7 @@ For further install instructions please visit :
   https://www.mongodb.com/docs/database-tools/installation/installation/
 #Steps
 - pip install pymongo
+- create a folder named 'data' at the root of the project
 - (if needed) Edit config.json file by providing Mongo Atlas uri
 ### skip this step if you are using a linux OS
 - Copy mongorestore.exe,mongodump.exe and mongoimport.exe from mongoDB tools directory in the same directory as scripts
@@ -19,3 +20,7 @@ For further install instructions please visit :
 `py backup.py --all`
 * if you want to import a specific database:
 `py backup.py [dbName]`
+  
+#TroubleShooting
+if you get the "Dnspython module must be installed" error run this command:
+`python -m pip install pymongo[srv]`

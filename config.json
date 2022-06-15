@@ -1,0 +1,14 @@
+{
+    "db" : {
+        "url": "mongodb+srv://ismail:ismail1996@firstcluster.yy1jr.mongodb.net",
+        "mongojs_url": "mongodb://ismail:ismail1996@firstcluster-shard-00-01.yy1jr.mongodb.net:27017,firstcluster-shard-00-00.yy1jr.mongodb.net:27017,firstcluster-shard-00-02.yy1jr.mongodb.net:27017",
+        "replicaset_option": "&replicaSet=atlas-ue8j4j-shard-0"
+    },
+    "webfleet": {
+        "activated": true,
+        "apikey": "226b8391-d2fb-4d6b-92f3-c9863808c8fb",
+        "password": "AzizW38F1337",
+        "username": "Aziz",
+        "account": "bornvd"
+    }
+}
