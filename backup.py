@@ -38,8 +38,8 @@ if __name__ == '__main__':
     exit()
   else:
     host = CONFIG['db']['url']
-    dbname = sys.argv[1]
-    if ('-all' in sys.argv[2]):
+    dbname = ""
+    if ('--all' in sys.argv):
       for x in MongoClient().list_database_names():
         if (x not in dbs_to_exclude):
           mongoUri = ('%s/%s?authSource=admin&retryWrites=true&w=majority' % (host,x))
@@ -55,6 +55,7 @@ if __name__ == '__main__':
         if(x.startswith('backup_')):
           shutil.move(x,'data')
     else:
+      dbname = sys.argv[1]
       mongoUri = ('%s/%s?authSource=admin&retryWrites=true&w=majority' % (host,dbname))
       try:
         directory= run_backup(mongoUri, dbname)
@@ -63,6 +64,6 @@ if __name__ == '__main__':
         print('[-] An unexpected error has occurred')
         print('[-] '+ str(e) )
         print('[-] EXIT')
-      if(os.path.exists('dump')):
-        shutil.move('dump','data')
+      if(os.path.exists(directory)):
+        shutil.move(directory,'data')
 
