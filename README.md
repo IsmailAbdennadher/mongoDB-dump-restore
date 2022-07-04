@@ -16,9 +16,9 @@ For further install instructions please visit :
 ## Run Script
 
 ### Run dump script
-* if you want to import all databases:
+* if you want to dump all databases:
 `py backup.py --all`
-* if you want to import a specific database:
+* if you want to dump a specific database:
 `py backup.py [dbName]`
   
 ## TroubleShooting
