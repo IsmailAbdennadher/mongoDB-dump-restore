@@ -10,7 +10,6 @@ def get_folder_backup(dbname):
   return directory
 
 def run_backup(mongoUri, dbname):
-  client = MongoClient(mongoUri)
   directory = get_folder_backup(dbname)
   print("--------------------------------------------")
   cmd= ('mongodump --uri="%s" -o %s/dump ' % (mongoUri,directory))
@@ -32,9 +31,9 @@ if __name__ == '__main__':
 
   dbs_to_exclude = ['admin', 'config', 'local','test']
   directory = ''
-  if (not(len(sys.argv) == 3) and not(len(sys.argv) == 2)):
+  if (not(len(sys.argv) == 2)):
     print('[-] Incorrect number of arguments')
-    print('python run.py [dbname]')
+    print('python backup.py [dbname]|--all')
     exit()
   else:
     host = CONFIG['db']['url']
@@ -66,4 +65,4 @@ if __name__ == '__main__':
         print('[-] EXIT')
       if(os.path.exists(directory)):
         shutil.move(directory,'data')
-
+  client.close()

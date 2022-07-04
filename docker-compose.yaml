@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  db_service:
+    image: mongo:5.0
+
+    volumes:        # Mount host paths or named volumes
+      - ./data:/data    # HOST:CONTAINER
+    ports:
+      - 27017:27017
